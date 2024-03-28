@@ -6,7 +6,7 @@
 
   <fwb-modal v-if="isShowModal" @close="closeModal">
     <template #header>
-      <div class="flex items-center text-lg">Feedback here</div>
+      
     </template>
     <template #body>
       <iframe

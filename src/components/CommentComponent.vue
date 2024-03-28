@@ -13,7 +13,7 @@ const feedback = useFeedbackStore();
 
 <template>
   <div class="flex flex-col text-left space-y-2">
-    <fwb-textarea v-model="feedback.comment" id="comment" :rows="4" :cols="50" label="Comment" />
+    <fwb-textarea v-model="feedback.comment" id="comment" :rows="4" :cols="50" label="Nhận xét" placeholder="Nội dung nhận xét ..."/>
 
     <div class="grid grid-cols-2">
       <template v-for="(suggestedComment, index) in suggestedComments" v-bind:key="index">
