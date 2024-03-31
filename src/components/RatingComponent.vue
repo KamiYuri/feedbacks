@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import StarRating from 'vue-star-rating';
-
-import { useFeedbackStore } from '@/stores/feedbackStore';
-
-const feedback = useFeedbackStore();
-</script>
-
 <template>
   <star-rating
     :rating="feedback.rating"
@@ -18,4 +10,9 @@ const feedback = useFeedbackStore();
   </star-rating>
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+import StarRating from 'vue-star-rating';
+import { useFeedbackStore } from '@/stores/feedbackStore';
+
+const feedback = useFeedbackStore();
+</script>

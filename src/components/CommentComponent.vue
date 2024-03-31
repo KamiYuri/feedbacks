@@ -1,20 +1,14 @@
-<script setup lang="ts">
-import { FwbTextarea } from 'flowbite-vue';
-import { useFeedbackStore } from '@/stores/feedbackStore';
-
-const suggestedComments = [
-  'Kê khai biểu mẫu hồ sơ tiện lợi',
-  'Thủ tục rút gọn, dễ hiểu',
-  'Dịch vụ nhanh, gọn và chuyên nghiệp'
-];
-
-const feedback = useFeedbackStore();
-</script>
-
 <template>
   <div class="flex flex-col text-left space-y-2">
     <label for="comment" class="block mb-2 text-sm font-medium text-gray-900">Nhận xét</label>
-    <textarea v-model="feedback.comment" id="comment" :rows="4" :cols="50" placeholder="Nội dung nhận xét ..." class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"/>
+    <textarea
+      v-model="feedback.comment"
+      id="comment"
+      :rows="4"
+      :cols="50"
+      placeholder="Nội dung nhận xét ..."
+      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+    />
     <div class="grid grid-cols-2">
       <template v-for="(suggestedComment, index) in suggestedComments" v-bind:key="index">
         <button
@@ -29,4 +23,14 @@ const feedback = useFeedbackStore();
   </div>
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+import { useFeedbackStore } from '@/stores/feedbackStore';
+
+const suggestedComments = [
+  'Kê khai biểu mẫu hồ sơ tiện lợi',
+  'Thủ tục rút gọn, dễ hiểu',
+  'Dịch vụ nhanh, gọn và chuyên nghiệp'
+];
+
+const feedback = useFeedbackStore();
+</script>
