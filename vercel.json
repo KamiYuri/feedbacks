@@ -1,12 +1,17 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-"headers": [
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "X-Frame-Options",
-          "value": false
+          "value": "false"
         }
       ]
     }
