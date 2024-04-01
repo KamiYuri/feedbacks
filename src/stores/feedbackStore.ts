@@ -6,7 +6,7 @@ export const useFeedbackStore = defineStore('counter', () => {
   const comment = ref('');
 
   async function submitFeedback(query) {
-    const response = await fetch('https://feedback.free.beeceptor.com', {
+    const response = await fetch('https://en0ku7xcqv8yr.x.pipedream.net', {
       method: 'POST',
       body: JSON.stringify({ rating: rating.value, comment: comment.value, query})
     });
