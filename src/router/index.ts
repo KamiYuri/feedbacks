@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 interface queryI {
-  userID: number,
-  serviceID: number,
-  rateType: string,
+  UserId: number,
+  ServiceName: string,
+  RateType: number,
 }
 
 const isQuery = (query: any): query is queryI => {
-  return query && query.userID && query.serviceID && query.rateType;
+  return query && query.UserID && query.ServiceName && query.RateType;
 };
 
 

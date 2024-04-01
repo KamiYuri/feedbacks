@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-
+  <title>Demo Đánh giá dịch vụ công</title>
+  <!--Thư viện cung cấp css dùng cho modal form đánh giá-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 <body class="flex items-center justify-center h-screen">
@@ -11,7 +11,7 @@
 <button data-modal-target="default-modal" data-modal-toggle="default-modal"
         class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         type="button">
-  Toggle modal
+  Đánh giá dịch vụ
 </button>
 
 <!-- Main modal -->
@@ -32,18 +32,15 @@
           <span class="sr-only">Close modal</span>
         </button>
       </div>
-      <!-- Modal body -->
+      <!-- Modal body Dùng iframe nhúng form đánh giá gọi đến URL của Rating server-->
+      <!-- Truyền tham số cần thiết trong url-encoded -->
       <div class="p-4 space-y-4">
-
-
         <iframe
           ref="formFrame"
-          src="http://localhost:5173/feedback?userID=2&serviceID=4&rateType=2"
+          src="https://feedbacks-eight.vercel.app/feedback?UserId=1&RateType=2&ServiceName=DCV06"
           class="flex w-full"
           style="height: 500px;"
         ></iframe>
-
-
       </div>
     </div>
   </div>
@@ -56,7 +53,7 @@
       if (event.data.type === 'feedback-result') {
         //Close modal
         window.FlowbiteInstances.getInstance('Modal', 'default-modal')?.hide();
-
+        /*
         setTimeout(() => {
           if (event.data.result === true) {
             alert('Feedback submitted successfully');
@@ -64,6 +61,7 @@
             alert('Failed to submit feedback');
           }
         }, 500);
+        */
       }
     });
   };
