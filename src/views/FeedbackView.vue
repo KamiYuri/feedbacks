@@ -46,7 +46,7 @@ const submitFeedback = async () => {
   sendMessages({ type: 'feedback-result', result });
 
   //alert(JSON.stringify(query))
-  var UserID = query.UserID;
+  var UserID = query.userID;
   alert(UserID);
 };
 
