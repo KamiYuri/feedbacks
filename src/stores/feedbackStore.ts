@@ -7,7 +7,7 @@ export const useFeedbackStore = defineStore('counter', () => {
 
   async function submitFeedback(query: object) {
     var data = { rating: rating.value, comment: comment.value, query}
-    alert("Submit data: " + JSON.stringify(data))
+    alert(JSON.stringify(data))
     const response = await fetch('https://enoxohxi8ubq.x.pipedream.net', {
       method: 'POST',
       body: JSON.stringify(data)
