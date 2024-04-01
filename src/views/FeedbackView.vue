@@ -45,9 +45,9 @@ const submitFeedback = async () => {
   const result = await feedbackStore.submitFeedback(query);
   sendMessages({ type: 'feedback-result', result });
 
-  //alert(JSON.stringify(query))
-  var UserID = query.userID;
-  alert(UserID);
+  alert(JSON.stringify(query))
+  //var UserID = query.userID;
+  //alert(UserID);
 };
 
 const closeForm = () => {
