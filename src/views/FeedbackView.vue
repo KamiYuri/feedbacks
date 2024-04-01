@@ -39,10 +39,10 @@ import { useRoute } from 'vue-router';
 const feedbackStore = useFeedbackStore();
 
 const route = useRoute();
-const query = route.query;
+const params = route.query;
 
 const submitFeedback = async () => {
-  const result = await feedbackStore.submitFeedback(query);
+  const result = await feedbackStore.submitFeedback(params);
   sendMessages({ type: 'feedback-result', result });
   //alert(JSON.stringify(query))
   //var UserID = query.userID;
