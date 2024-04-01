@@ -6,9 +6,11 @@ export const useFeedbackStore = defineStore('counter', () => {
   const comment = ref('');
 
   async function submitFeedback(query: object) {
+    var data = { rating: rating.value, comment: comment.value, query}
+    alert(data)
     const response = await fetch('https://enoxohxi8ubq.x.pipedream.net', {
       method: 'POST',
-      body: JSON.stringify({ rating: rating.value, comment: comment.value, query})
+      body: JSON.stringify(data)
     });
     return response.ok;
   }
