@@ -38,7 +38,7 @@
 
         <iframe
           ref="formFrame"
-          src="http://localhost:5173/feedback"
+          src="http://localhost:5173/feedback?userID=2&serviceID=4&rateType=2"
           class="flex w-full"
           style="height: 500px;"
         ></iframe>
@@ -55,13 +55,15 @@
     window.addEventListener('message', function(event) {
       if (event.data.type === 'feedback-result') {
         //Close modal
-        document.querySelector('[data-modal-hide="default-modal"]').click();
+        window.FlowbiteInstances.getInstance('Modal', 'default-modal')?.hide();
 
-        if (event.data.result === true) {
-          alert('Feedback submitted successfully');
-        } else if (event.data.result === false) {
-          alert('Failed to submit feedback');
-        }
+        setTimeout(() => {
+          if (event.data.result === true) {
+            alert('Feedback submitted successfully');
+          } else if (event.data.result === false) {
+            alert('Failed to submit feedback');
+          }
+        }, 500);
       }
     });
   };

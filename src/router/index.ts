@@ -1,5 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+interface queryI {
+  userID: number,
+  serviceID: number,
+  rateType: string,
+}
+
+const isQuery = (query: any): query is queryI => {
+  return query && query.userID && query.serviceID && query.rateType;
+};
+
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,7 +22,13 @@ const router = createRouter({
     {
       path: '/feedback',
       name: 'feedback',
-      component: () => import('@/views/FeedbackView.vue')
+      component: () => import('@/views/FeedbackView.vue'),
+      beforeEnter: (to, from, next) => {
+        if (!isQuery(to.query)) {
+          next({ name: 'not-found' });
+        }
+        next();
+      }
     },
     {
       path: '/:pathMatch(.*)*',

@@ -34,13 +34,18 @@
 import RatingComponent from '@/components/RatingComponent.vue';
 import CommentComponent from '@/components/CommentComponent.vue';
 import { useFeedbackStore } from '@/stores/feedbackStore';
+import { useRoute } from 'vue-router';
 
 const feedbackStore = useFeedbackStore();
 
+const route = useRoute();
+const query = route.query;
+
 const submitFeedback = async () => {
   const result = await feedbackStore.submitFeedback();
-
   sendMessages({ type: 'feedback-result', result });
+
+  alert(JSON.stringify(query))
 };
 
 const closeForm = () => {
