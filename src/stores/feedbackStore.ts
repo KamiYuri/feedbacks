@@ -5,10 +5,10 @@ export const useFeedbackStore = defineStore('counter', () => {
   const rating = ref(3);
   const comment = ref('');
 
-  async function submitFeedback() {
-    const response = await fetch('https://eoqieqhu9gaarxl.m.pipedream.net', {
+  async function submitFeedback(query) {
+    const response = await fetch('https://postman-echo.com/post', {
       method: 'POST',
-      body: JSON.stringify({ rating: rating.value, comment: comment.value })
+      body: JSON.stringify({ rating: rating.value, comment: comment.value, query})
     });
     return response.ok;
   }

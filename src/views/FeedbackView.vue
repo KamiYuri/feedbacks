@@ -42,7 +42,7 @@ const route = useRoute();
 const query = route.query;
 
 const submitFeedback = async () => {
-  const result = await feedbackStore.submitFeedback();
+  const result = await feedbackStore.submitFeedback(query);
   sendMessages({ type: 'feedback-result', result });
 
   //alert(JSON.stringify(query))
