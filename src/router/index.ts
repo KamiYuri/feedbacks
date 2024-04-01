@@ -7,7 +7,8 @@ interface queryI {
 }
 
 const isQuery = (query: any): query is queryI => {
-  return query && query.UserID && query.ServiceName && query.RateType;
+  //return query && query.UserID && query.ServiceName && query.RateType;
+  return query;
 };
 
 
